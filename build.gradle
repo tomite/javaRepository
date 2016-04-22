@@ -1,7 +1,12 @@
-apply plugin: 'application'
-
-repositories {
-  mavenCentral()
+buildscript {
+  // 外部リポジトリとしてMavenリポジトリを指定
+  repositories {
+    mavenCentral()
+  }
 }
+defaultTasks 'clean', 'run'
 
-mainClassName = "Hello"
+project("sample:" + properties.sampleDir) {
+  apply plugin: 'application'
+  mainClassName = 'Hello'
+}
